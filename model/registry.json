@@ -63,5 +63,70 @@
   },
   "promoted": true,
   "problems": []
+ },
+ {
+  "run_at": "2026-11-17T00:59:21Z",
+  "rows": 76781,
+  "new_labels_from_log": 0,
+  "rain_hours_added": 0,
+  "trained_through": "2026-11-12",
+  "recent_year": {
+   "from": "2025-11-13",
+   "to": "2026-11-12",
+   "y200": {
+    "site_history": {
+     "n": 4943,
+     "positives": 220,
+     "base_rate": 0.04450738417964799,
+     "avg_precision": 0.17063273382083094,
+     "brier": 0.03951844236562982,
+     "roc_auc": 0.7610638461686525
+    },
+    "rain_rule": {
+     "n": 4943,
+     "positives": 220,
+     "base_rate": 0.04450738417964799,
+     "avg_precision": 0.18002155973115933,
+     "brier": 0.03964511777319315,
+     "roc_auc": 0.7706224857082362
+    },
+    "model": {
+     "n": 4943,
+     "positives": 220,
+     "base_rate": 0.04450738417964799,
+     "avg_precision": 0.34223351854273226,
+     "brier": 0.03469498605955832,
+     "roc_auc": 0.8767895982907629
+    }
+   },
+   "y40": {
+    "site_history": {
+     "n": 4943,
+     "positives": 716,
+     "base_rate": 0.14485130487558162,
+     "avg_precision": 0.4386893363826454,
+     "brier": 0.102620779578153,
+     "roc_auc": 0.7628748019184994
+    },
+    "rain_rule": {
+     "n": 4943,
+     "positives": 716,
+     "base_rate": 0.14485130487558162,
+     "avg_precision": 0.3632027500932128,
+     "brier": 0.11095408724402253,
+     "roc_auc": 0.696331477744164
+    },
+    "model": {
+     "n": 4943,
+     "positives": 716,
+     "base_rate": 0.14485130487558162,
+     "avg_precision": 0.5712010825465694,
+     "brier": 0.0888948330027934,
+     "roc_auc": 0.8493823954281666
+    }
+   }
+  },
+  "promoted": true,
+  "problems": []
  }
 ]
