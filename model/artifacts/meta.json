@@ -1,6 +1,6 @@
 {
  "trained_through": "2026-11-12",
- "rows": 76786,
+ "rows": 76781,
  "features": [
   "rain_6h",
   "rain_12h",
@@ -13,7 +13,6 @@
   "hist_n",
   "hist_rate200",
   "hist_rate40",
-  "hist_logmean",
   "doy_sin",
   "doy_cos",
   "site_key",
@@ -160,7 +159,7 @@
   "random_state": 0
  },
  "base_rate": {
-  "y200": 0.03914776131065559,
-  "y40": 0.1289688224415909
+  "y200": 0.03915031062372201,
+  "y40": 0.12897722092705227
  }
 }

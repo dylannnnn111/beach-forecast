@@ -2,7 +2,7 @@
 
 Sites are grouped into 0.05 degree cells (about 5 km) so beaches that share a
 weather-model grid square share one request. One gzipped JSON per cell in
-data/raw/rain/, plus data/processed/site_cells.csv mapping each site to its cell.
+data/rain/, plus data/processed/site_cells.csv mapping each site to its cell.
 Resumable: cells already on disk are skipped. Times are UTC. Standard library only.
 
 Weather data by Open-Meteo.com (CC BY 4.0).
@@ -76,10 +76,44 @@ def compact(payload: dict) -> dict:
     }
 
 
+def extend(rain_dir: str, end: str, fetcher=fetch, sleep=time.sleep, pause: float = 5.0) -> int:
+    """Top up every cell file in rain_dir to `end` (YYYY-MM-DD). Returns hours added."""
+    from datetime import datetime, timedelta
+    added = 0
+    files = sorted(Path(rain_dir).glob("*.json.gz"))
+    for n, path in enumerate(files):
+        with gzip.open(path, "rt") as fh:
+            d = json.load(fh)
+        last = datetime.fromisoformat(d["end"])
+        if last.hour != 23:
+            raise ValueError(f"{path.name} does not end on a full day")
+        start = (last + timedelta(days=1)).date().isoformat()
+        if start > end:
+            continue
+        lat, lon = (float(x) for x in path.name[:-8].split("_"))
+        new = compact(fetcher(url_for((lat, lon), start, end)))
+        vals = new["precipitation"]
+        while vals and vals[-1] is None:  # the newest hours can be unpublished - leave them for next time
+            vals = vals[:-1]
+        vals = vals[: len(vals) // 24 * 24]
+        if any(v is None for v in vals):
+            raise ValueError(f"{path.name}: gap in the new rain data")
+        if new["start"] != start + "T00:00" or not vals:
+            continue
+        d["precipitation"].extend(vals)
+        d["end"] = (last + timedelta(hours=len(vals))).strftime("%Y-%m-%dT%H:%M")
+        with gzip.open(path, "wt") as fh:
+            json.dump(d, fh)
+        added += len(vals)
+        if n < len(files) - 1:
+            sleep(pause)
+    return added
+
+
 def main(argv=None, fetcher=fetch, sleep=time.sleep) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--samples", default="data/processed/samples.csv")
-    ap.add_argument("--out", default="data/raw/rain")
+    ap.add_argument("--out", default="data/rain")
     ap.add_argument("--map", default="data/processed/site_cells.csv")
     ap.add_argument("--start", default="2009-12-25")
     ap.add_argument("--end", required=True, help="last date to fetch, YYYY-MM-DD (the archive runs about 5 days behind)")

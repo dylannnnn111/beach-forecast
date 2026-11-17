@@ -44,7 +44,8 @@ class HistoryTest(unittest.TestCase):
         df = pd.DataFrame({
             "site_key": ["a"] * 4,
             "date": pd.to_datetime(["2020-01-01", "2020-01-05", "2020-01-08", "2020-01-20"]),
-            "enterococci": [500.0, 10.0, 10.0, 10.0],
+            "y200": [1, 0, 0, 0],
+            "y40": [1, 0, 0, 0],
         })
         h = site_history(df)
         self.assertTrue(np.isnan(h.loc[0, "hist_rate200"]))

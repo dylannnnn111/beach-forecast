@@ -21,7 +21,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, brier_score_loss, roc_auc_score
 
 RAIN = ["rain_6h", "rain_12h", "rain_24h", "rain_48h", "rain_72h", "rain_7d", "rain_max1h_24h", "hours_since_1mm"]
-HIST = ["hist_n", "hist_rate200", "hist_rate40", "hist_logmean"]
+HIST = ["hist_n", "hist_rate200", "hist_rate40"]
 FEATURES = RAIN + HIST + ["doy_sin", "doy_cos", "site_key", "region"]
 PARAMS = dict(objective="binary", n_estimators=400, learning_rate=0.03, num_leaves=15, min_child_samples=80,
               subsample=0.8, subsample_freq=1, colsample_bytree=0.8, reg_lambda=5.0, verbose=-1, random_state=0)
@@ -50,15 +50,15 @@ def fit_predict(train: pd.DataFrame, test: pd.DataFrame, target: str) -> dict:
 
 
 def run(df: pd.DataFrame, first_test_year: int, targets=("y200", "y40")) -> tuple[dict, pd.DataFrame]:
-    cats = {c: pd.CategoricalDtype(sorted(df[c].unique())) for c in ("site_key", "region")}
-    for c, t in cats.items():
-        df[c] = df[c].astype(t)
+    df = df.copy()
+    for c in ("site_key", "region"):
+        df[c] = df[c].astype(pd.CategoricalDtype(sorted(df[c].astype(str).unique())))
     preds = []
     for year in range(first_test_year, int(df["year"].max()) + 1):
         train, test = df[df["year"] < year], df[df["year"] == year]
         if test.empty:
             continue
-        row = test[["site_key", "date", "year", "enterococci", "y200", "y40", "rain_24h"]].copy()
+        row = test[["site_key", "date", "year", "y200", "y40", "rain_24h"]].copy()
         for t in targets:
             for name, p in fit_predict(train, test, t).items():
                 row[f"{t}_{name}"] = p
