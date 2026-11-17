@@ -1,13 +1,39 @@
 # Beach Forecast
 
-Which Sydney beaches are safe to swim at each morning? A model trained on NSW Beachwatch water samples and rainfall, scored every day against the official pollution forecast.
+Which Sydney beaches are safe to swim at each morning? A model trained on NSW Beachwatch water samples and hourly rainfall, scored every day against the official pollution forecast.
 
-Status: early. The first piece is the forecast logger - Beachwatch publishes only its latest forecast, so this repo records it twice a day to build the track record the model gets scored against.
+Status: in progress. The pipeline runs end to end and scores every site each morning. The head-to-head with the official forecast started on 17 Nov 2026, because Beachwatch publishes only its latest forecast and nobody keeps the history - so this repo records it.
 
-## Forecast logger
-- `logger/log_forecasts.py` calls the public Beachwatch API and appends one line per site per forecast issue to `data/forecasts/YYYY-MM.jsonl`.
-- `.github/workflows/log-forecasts.yml` runs it at about 7:37am and 1:37pm Sydney time and commits new rows.
-- Run locally: `python -m logger.log_forecasts`. Tests: `python -m unittest discover tests`.
+## How it works
+1. `logger/` records the official Beachwatch forecast for every site twice a day -> `data/forecasts/`.
+2. `ingest/samples.py` cleans the Beachwatch sample download (enterococci results, 112 Sydney sites, 2010 on).
+3. `ingest/rain.py` downloads hourly rainfall for each site from Open-Meteo's historical API.
+4. `features/build.py` joins each sample to the rain before it, as of 6am on the sample day. No rain after 6am, no measurements taken with the sample, no lab results less than a week old.
+5. `model/backtest.py` tests year by year: train on every earlier year, test on the next. Results in `out/backtest.json`.
+6. `model/train.py` fits the final models -> `model/artifacts/`.
+7. `score/daily.py` runs each morning on GitHub Actions and writes a risk for every site -> `data/predictions/`.
 
-## Data
-Beachwatch data: © State Government of NSW and NSW Department of Climate Change, Energy, the Environment and Water, Creative Commons Attribution. This project is not affiliated with Beachwatch and is not swimming advice.
+## First backtest (test years 2016-2026, 50,706 samples)
+Target: a sample above 200 enterococci per 100 mL (3.9% of samples). Average precision, where a random guess scores 0.039:
+
+| Method | Average precision |
+|---|---|
+| Site history only | 0.132 |
+| Rain-only rule | 0.183 |
+| Model | 0.313 |
+
+The rain-only rule is this project's own stand-in for a rainfall-based forecast. It is not the official forecast, which has no public history. Settings are near default and untuned.
+
+## Known limits
+- Samples are taken about every six days per site, so the model can only be checked on those days.
+- The rainfall is modelled on a grid, not measured at a gauge: the 112 sites share 15 grid points, and big local storms are smoothed out.
+- The daily job reads recent rain from Open-Meteo's forecast API while training used its historical archive. The two can differ; that gap has not been measured yet.
+
+## Run it
+`pip install -r requirements.txt`, then `python -m unittest discover tests`. The raw sample download and rainfall files are not in the repo (`data/raw/` is ignored); see the docstrings in `ingest/` for how to fetch them.
+
+## Data and credit
+- Beachwatch data: © State Government of NSW and NSW Department of Climate Change, Energy, the Environment and Water, Creative Commons Attribution.
+- Weather data by Open-Meteo.com (CC BY 4.0).
+
+This project is not affiliated with Beachwatch and is not swimming advice.
