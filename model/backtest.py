@@ -84,6 +84,12 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     df = pd.read_csv(a.features, parse_dates=["date"])
     result, preds = run(df, a.first_test_year)
+    df["band"] = pd.cut(df["rain_24h"], [-1, 0.1, 2, 5, 10, 20, 10_000], labels=["0", "0.1-2", "2-5", "5-10", "10-20", "20+"])
+    result["rain_bands"] = [{"band": str(b), "n": int(len(g)), "above_200": float(g["y200"].mean()), "above_40": float(g["y40"].mean())}
+                            for b, g in df.groupby("band", observed=True)]
+    cal = preds.assign(bin=pd.cut(preds["y200_model"], [0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 1.0]))
+    result["calibration_y200"] = [{"predicted": float(g["y200_model"].mean()), "actual": float(g["y200"].mean()), "n": int(len(g))}
+                                  for _, g in cal.groupby("bin", observed=True)]
     result["rows"] = int(len(df))
     result["sites"] = int(df["site_key"].nunique())
     result["features"] = FEATURES
