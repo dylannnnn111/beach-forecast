@@ -1,8 +1,256 @@
 {
- "generated_at": "2026-11-19T01:59:32Z",
- "first_day": null,
- "last_day": null,
- "all_calls": null,
- "head_to_head": null,
- "rows": []
+ "generated_at": "2026-11-19T10:44:28Z",
+ "first_day": "2026-11-17",
+ "last_day": "2026-11-17",
+ "all_calls": {
+  "model": {
+   "n": 17,
+   "above_200": 0,
+   "above_40": 1,
+   "by_level": {
+    "Unlikely": {
+     "n": 16,
+     "above_200": 0,
+     "above_40": 1
+    },
+    "Possible": {
+     "n": 1,
+     "above_200": 0,
+     "above_40": 0
+    },
+    "Likely": {
+     "n": 0,
+     "above_200": 0,
+     "above_40": 0
+    }
+   },
+   "flagged": 1,
+   "caught_above_200": 0,
+   "caught_above_40": 0
+  }
+ },
+ "head_to_head": {
+  "model": {
+   "n": 17,
+   "above_200": 0,
+   "above_40": 1,
+   "by_level": {
+    "Unlikely": {
+     "n": 16,
+     "above_200": 0,
+     "above_40": 1
+    },
+    "Possible": {
+     "n": 1,
+     "above_200": 0,
+     "above_40": 0
+    },
+    "Likely": {
+     "n": 0,
+     "above_200": 0,
+     "above_40": 0
+    }
+   },
+   "flagged": 1,
+   "caught_above_200": 0,
+   "caught_above_40": 0
+  },
+  "official": {
+   "n": 17,
+   "above_200": 0,
+   "above_40": 1,
+   "by_level": {
+    "Unlikely": {
+     "n": 11,
+     "above_200": 0,
+     "above_40": 1
+    },
+    "Possible": {
+     "n": 5,
+     "above_200": 0,
+     "above_40": 0
+    },
+    "Likely": {
+     "n": 1,
+     "above_200": 0,
+     "above_40": 0
+    }
+   },
+   "flagged": 6,
+   "caught_above_200": 0,
+   "caught_above_40": 0
+  }
+ },
+ "rows": [
+  {
+   "date": "2026-11-17",
+   "site_key": "avalon-beach",
+   "site_name": "Avalon Beach",
+   "model": "Unlikely",
+   "p200": 0.0036,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "barrenjoey-beach",
+   "site_name": "Barrenjoey Beach",
+   "model": "Unlikely",
+   "p200": 0.0203,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "bayview-baths",
+   "site_name": "Bayview Baths",
+   "model": "Possible",
+   "p200": 0.1292,
+   "official": "Likely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "bilgola-beach",
+   "site_name": "Bilgola Beach",
+   "model": "Unlikely",
+   "p200": 0.0111,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "bungan-beach",
+   "site_name": "Bungan Beach",
+   "model": "Unlikely",
+   "p200": 0.0121,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "clareville-beach",
+   "site_name": "Clareville Beach",
+   "model": "Unlikely",
+   "p200": 0.0073,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "elvina-bay",
+   "site_name": "Elvina Bay",
+   "model": "Unlikely",
+   "p200": 0.0124,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "great-mackerel-beach",
+   "site_name": "Great Mackerel Beach",
+   "model": "Unlikely",
+   "p200": 0.0066,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "mona-vale-beach",
+   "site_name": "Mona Vale Beach",
+   "model": "Unlikely",
+   "p200": 0.0088,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "newport-beach",
+   "site_name": "Newport Beach",
+   "model": "Unlikely",
+   "p200": 0.0096,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "north-scotland-island",
+   "site_name": "North Scotland Island",
+   "model": "Unlikely",
+   "p200": 0.0141,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "palm-beach",
+   "site_name": "Palm Beach",
+   "model": "Unlikely",
+   "p200": 0.0036,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "paradise-beach-baths",
+   "site_name": "Paradise Beach Baths",
+   "model": "Unlikely",
+   "p200": 0.0163,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "south-scotland-island",
+   "site_name": "South Scotland Island",
+   "model": "Unlikely",
+   "p200": 0.0119,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "taylors-point-baths",
+   "site_name": "Taylors Point Baths",
+   "model": "Unlikely",
+   "p200": 0.0067,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "the-basin",
+   "site_name": "The Basin",
+   "model": "Unlikely",
+   "p200": 0.0026,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "whale-beach",
+   "site_name": "Whale Beach",
+   "model": "Unlikely",
+   "p200": 0.0057,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  }
+ ]
 }
