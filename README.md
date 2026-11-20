@@ -11,7 +11,7 @@ Status: in progress. The pipeline runs end to end and scores every site each mor
 4. `features/build.py` joins each sample to the rain before it, as of 6am on the sample day. No rain after 6am, no measurements taken with the sample, no lab results less than a week old.
 5. `model/backtest.py` tests year by year: train on every earlier year, test on the next. Results in `out/backtest.json`.
 6. `model/train.py` fits the final models -> `model/artifacts/`.
-7. `score/daily.py` runs each morning on GitHub Actions and writes a risk for every site -> `data/predictions/`.
+7. `score/daily.py` runs each morning on GitHub Actions and writes a risk for every site -> `data/predictions/`. GitHub starts scheduled jobs hours late, so the job is attempted every hour through the Sydney morning and the first attempt that works scores the day. Whenever it runs, it only uses rain up to 6am.
 8. `score/track_record.py` lines up each morning's call, the official forecast and the lab result that came in later -> `out/track_record.json`.
 9. `retrain/weekly.py` runs every week: tops up the rain, turns the new lab results the logger has seen into labels, rebuilds the features and retrains. A new model only replaces the live one if the checks pass; every run is recorded in `model/registry.json`.
 
@@ -27,6 +27,8 @@ Target: a sample above 200 enterococci per 100 mL (3.9% of site-days). Average p
 The rain-only rule is this project's own stand-in for a rainfall-based forecast. It is not the official forecast, which has no public history. Settings are near default and untuned.
 
 ## Known limits
+- A morning can be missed. 18 Nov 2026 has no predictions: the one attempt that day timed out reaching the weather API. Requests now retry and the job has several attempts a day. Missed days are left missing, not filled in afterwards.
+- The official forecast is logged when the logger runs, which can be hours after it was issued. If Beachwatch has reissued it by then, the log holds the later version.
 - Samples are taken about every six days per site, so the model can only be checked on those days.
 - The rainfall is modelled on a grid, not measured at a gauge: the 112 sites share 15 grid points, and big local storms are smoothed out.
 - New labels come from the public feed as categories (Good / Fair / Poor / Bad), which line up with the count thresholds; checked on 106 samples that appear in both.

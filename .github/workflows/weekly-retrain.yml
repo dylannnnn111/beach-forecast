@@ -27,7 +27,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add model/artifacts model/registry.json data/rain out/track_record.json out/site.json out/backtest.json
-          git diff --cached --quiet || (git commit -m "Weekly retrain $(date -u +%F)" && git pull --rebase && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Weekly retrain $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 10; done; exit 1
       - name: Fail if the new model was refused
         if: steps.retrain.outputs.refused == '1'
         run: exit 1

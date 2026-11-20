@@ -11,8 +11,8 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import urllib.error
 import urllib.parse
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -21,6 +21,7 @@ import lightgbm as lgb
 import numpy as np
 import pandas as pd
 
+from common.http import get_json
 from features.build import CUTOFF_HOUR, TZ, rain_features
 
 API = "https://api.open-meteo.com/v1/forecast"
@@ -40,10 +41,7 @@ def fetch_rain(cells: pd.DataFrame) -> list[dict]:
     q = {"latitude": ",".join(f"{v:.2f}" for v in cells["cell_lat"]),
          "longitude": ",".join(f"{v:.2f}" for v in cells["cell_lon"]),
          "hourly": "precipitation", "timezone": "GMT", "past_days": PAST_DAYS, "forecast_days": 1}
-    req = urllib.request.Request(API + "?" + urllib.parse.urlencode(q, safe=","),
-                                 headers={"User-Agent": "beach-forecast (github.com/dylannnnn111/beach-forecast)"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        data = json.load(r)
+    data = get_json(API + "?" + urllib.parse.urlencode(q, safe=","), "beach-forecast (github.com/dylannnnn111/beach-forecast)")
     return data if isinstance(data, list) else [data]
 
 
@@ -81,6 +79,7 @@ def main(argv=None, fetcher=fetch_rain, now=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--artifacts", default="model/artifacts")
     ap.add_argument("--out", default="data/predictions")
+    ap.add_argument("--strict", action="store_true", help="the day's last attempt: fail if today still has no predictions")
     a = ap.parse_args(argv)
     art = Path(a.artifacts)
     meta = json.load(open(art / "meta.json"))
@@ -88,11 +87,23 @@ def main(argv=None, fetcher=fetch_rain, now=None) -> int:
     boosters = {t: lgb.Booster(model_file=str(art / f"{t}.txt")) for t in ("y200", "y40")}
     now = now or datetime.now(timezone.utc)
     day = now.astimezone(ZoneInfo(TZ)).date()
+    path = Path(a.out) / f"{day:%Y-%m}.jsonl"
+    done = set()
+    if path.exists():
+        done = {(r["date"], r["site_key"]) for r in map(json.loads, path.read_text().splitlines()) if r}
+    if all((str(day), k) in done for k in sites["site_key"]):
+        print(f"{day}: already scored")
+        return 0
     if pd.Timestamp(now.replace(tzinfo=None)) < cutoff_utc(day):
-        print("it is not 6am in Sydney yet - nothing to score", file=sys.stderr)
-        return 1
+        print("it is not 6am in Sydney yet - nothing to score")
+        return 0
     cells = sites.drop_duplicates("cell_id")[["cell_id", "cell_lat", "cell_lon"]].reset_index(drop=True)
-    payload = fetcher(cells)
+    try:
+        payload = fetcher(cells)
+    except (urllib.error.URLError, TimeoutError, ConnectionError, ValueError) as e:
+        # The job runs several times a morning, so one bad attempt is not a failure - unless it is the last.
+        print(f"could not get rain from Open-Meteo: {e}", file=sys.stderr)
+        return 1 if a.strict else 0
     if len(payload) != len(cells):
         print(f"asked for {len(cells)} cells, got {len(payload)}", file=sys.stderr)
         return 1
@@ -100,11 +111,7 @@ def main(argv=None, fetcher=fetch_rain, now=None) -> int:
                 np.array([np.nan if v is None else v for v in p["hourly"]["precipitation"]], dtype=float))
             for c, p in zip(cells["cell_id"], payload)}
     res = score(sites, rain, meta, boosters, day)
-    path = Path(a.out) / f"{day:%Y-%m}.jsonl"
     path.parent.mkdir(parents=True, exist_ok=True)
-    done = set()
-    if path.exists():
-        done = {(r["date"], r["site_key"]) for r in map(json.loads, path.read_text().splitlines()) if r}
     stamp = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     added = 0
     with path.open("a") as fh:

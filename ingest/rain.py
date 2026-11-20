@@ -20,6 +20,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from common.http import get_json
+
 API = "https://archive-api.open-meteo.com/v1/archive"
 CELL = 0.05
 
@@ -47,19 +49,8 @@ def url_for(cell, start: str, end: str) -> str:
     return API + "?" + urllib.parse.urlencode(q)
 
 
-def fetch(url: str, tries: int = 5, pause: float = 60.0) -> dict:
-    for attempt in range(tries):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "beach-forecast (github.com/dylannnnn111/beach-forecast)"})
-            with urllib.request.urlopen(req, timeout=120) as r:
-                return json.load(r)
-        except urllib.error.HTTPError as e:
-            if e.code == 429 and attempt < tries - 1:
-                print(f"  rate limited, waiting {pause:.0f}s", file=sys.stderr)
-                time.sleep(pause)
-                continue
-            raise
-    raise RuntimeError("unreachable")
+def fetch(url: str) -> dict:
+    return get_json(url, "beach-forecast (github.com/dylannnnn111/beach-forecast)", timeout=120, pause=60)
 
 
 def compact(payload: dict) -> dict:

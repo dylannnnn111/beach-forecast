@@ -56,9 +56,32 @@ class DailyTest(unittest.TestCase):
             self.assertEqual([r["p200"] for r in self.rows(late)], [r["p200"] for r in self.rows(dry)])
             self.assertEqual(self.rows(wet)[0]["rain_24h"], 72.0)
 
-    def test_refuses_to_run_before_6am(self):
+    def test_before_6am_it_skips_without_failing_or_scoring(self):
         with tempfile.TemporaryDirectory() as d:
-            self.assertEqual(self.run_daily(d, now=datetime(2026, 11, 16, 18, 0, tzinfo=timezone.utc)), 1)
+            self.assertEqual(self.run_daily(d, now=datetime(2026, 11, 16, 18, 0, tzinfo=timezone.utc)), 0)
+            self.assertFalse((Path(d) / "2026-11.jsonl").exists())
+
+    def test_a_failed_fetch_is_quiet_until_the_last_attempt_and_a_later_attempt_recovers(self):
+        import urllib.error
+
+        def down(cells):
+            raise urllib.error.URLError("handshake timed out")
+
+        with tempfile.TemporaryDirectory() as d:
+            self.assertEqual(daily.main(["--out", d], fetcher=down, now=NOW), 0)
+            self.assertEqual(daily.main(["--out", d, "--strict"], fetcher=down, now=NOW), 1)
+            self.assertFalse((Path(d) / "2026-11.jsonl").exists())
+            self.assertEqual(self.run_daily(d), 0)
+            self.assertEqual(len(self.rows(d)), len(pd.read_csv(ART / "sites.csv")))
+
+    def test_once_scored_it_does_not_call_the_api_again(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.run_daily(d)
+
+            def boom(cells):
+                raise AssertionError("should not fetch")
+
+            self.assertEqual(daily.main(["--out", d, "--strict"], fetcher=boom, now=NOW), 0)
 
     def test_levels(self):
         self.assertEqual([daily.level(p) for p in (0.01, 0.04, 0.149, 0.15, 0.9)], ["Unlikely", "Possible", "Possible", "Likely", "Likely"])

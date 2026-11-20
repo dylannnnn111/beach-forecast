@@ -10,9 +10,10 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+
+from common.http import get_json
 
 URL = "https://api.beachwatch.nsw.gov.au/public/sites/geojson"
 FIELDS = (
@@ -25,9 +26,7 @@ FIELDS = (
 
 
 def fetch(url: str = URL) -> dict:
-    req = urllib.request.Request(url, headers={"User-Agent": "beach-forecast-logger"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+    return get_json(url, "beach-forecast-logger")
 
 
 def rows(geojson: dict, fetched_at: str) -> list[dict]:
