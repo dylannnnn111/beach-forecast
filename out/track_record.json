@@ -1,84 +1,84 @@
 {
- "generated_at": "2026-11-22T16:37:06Z",
+ "generated_at": "2026-11-22T22:01:30Z",
  "first_day": "2026-11-17",
- "last_day": "2026-11-17",
+ "last_day": "2026-11-19",
  "all_calls": {
   "model": {
-   "n": 17,
-   "above_200": 0,
-   "above_40": 1,
+   "n": 43,
+   "above_200": 3,
+   "above_40": 6,
    "by_level": {
     "Unlikely": {
-     "n": 16,
+     "n": 36,
      "above_200": 0,
-     "above_40": 1
+     "above_40": 2
     },
     "Possible": {
-     "n": 1,
-     "above_200": 0,
-     "above_40": 0
+     "n": 4,
+     "above_200": 1,
+     "above_40": 1
     },
     "Likely": {
-     "n": 0,
-     "above_200": 0,
-     "above_40": 0
+     "n": 3,
+     "above_200": 2,
+     "above_40": 3
     }
    },
-   "flagged": 1,
-   "caught_above_200": 0,
-   "caught_above_40": 0
+   "flagged": 7,
+   "caught_above_200": 3,
+   "caught_above_40": 4
   }
  },
  "head_to_head": {
   "model": {
-   "n": 17,
-   "above_200": 0,
-   "above_40": 1,
+   "n": 40,
+   "above_200": 2,
+   "above_40": 5,
    "by_level": {
     "Unlikely": {
-     "n": 16,
+     "n": 34,
      "above_200": 0,
-     "above_40": 1
+     "above_40": 2
     },
     "Possible": {
-     "n": 1,
-     "above_200": 0,
-     "above_40": 0
-    },
-    "Likely": {
-     "n": 0,
-     "above_200": 0,
-     "above_40": 0
-    }
-   },
-   "flagged": 1,
-   "caught_above_200": 0,
-   "caught_above_40": 0
-  },
-  "official": {
-   "n": 17,
-   "above_200": 0,
-   "above_40": 1,
-   "by_level": {
-    "Unlikely": {
-     "n": 11,
-     "above_200": 0,
+     "n": 4,
+     "above_200": 1,
      "above_40": 1
     },
-    "Possible": {
-     "n": 5,
-     "above_200": 0,
-     "above_40": 0
-    },
     "Likely": {
-     "n": 1,
-     "above_200": 0,
-     "above_40": 0
+     "n": 2,
+     "above_200": 1,
+     "above_40": 2
     }
    },
    "flagged": 6,
-   "caught_above_200": 0,
-   "caught_above_40": 0
+   "caught_above_200": 2,
+   "caught_above_40": 3
+  },
+  "official": {
+   "n": 40,
+   "above_200": 2,
+   "above_40": 5,
+   "by_level": {
+    "Unlikely": {
+     "n": 22,
+     "above_200": 0,
+     "above_40": 2
+    },
+    "Possible": {
+     "n": 12,
+     "above_200": 0,
+     "above_40": 0
+    },
+    "Likely": {
+     "n": 6,
+     "above_200": 2,
+     "above_40": 3
+    }
+   },
+   "flagged": 18,
+   "caught_above_200": 2,
+   "caught_above_40": 3
   }
  },
  "rows": [
@@ -114,6 +114,16 @@
   },
   {
    "date": "2026-11-17",
+   "site_key": "bilarong-reserve",
+   "site_name": "Bilarong Reserve",
+   "model": "Likely",
+   "p200": 0.3895,
+   "official": null,
+   "above_200": 1,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-17",
    "site_key": "bilgola-beach",
    "site_name": "Bilgola Beach",
    "model": "Unlikely",
@@ -144,10 +154,40 @@
   },
   {
    "date": "2026-11-17",
+   "site_key": "collaroy-beach",
+   "site_name": "Collaroy Beach",
+   "model": "Unlikely",
+   "p200": 0.0159,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "dee-why-beach",
+   "site_name": "Dee Why Beach",
+   "model": "Unlikely",
+   "p200": 0.0162,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
    "site_key": "elvina-bay",
    "site_name": "Elvina Bay",
    "model": "Unlikely",
    "p200": 0.0124,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "freshwater-beach",
+   "site_name": "Freshwater Beach",
+   "model": "Unlikely",
+   "p200": 0.0345,
    "official": "Possible",
    "above_200": 0,
    "above_40": 0
@@ -164,6 +204,16 @@
   },
   {
    "date": "2026-11-17",
+   "site_key": "long-reef-beach",
+   "site_name": "Long Reef Beach",
+   "model": "Unlikely",
+   "p200": 0.0129,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
    "site_key": "mona-vale-beach",
    "site_name": "Mona Vale Beach",
    "model": "Unlikely",
@@ -171,6 +221,16 @@
    "official": "Unlikely",
    "above_200": 0,
    "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "narrabeen-lagoon-birdwood-park",
+   "site_name": "Narrabeen Lagoon (Birdwood Park)",
+   "model": "Likely",
+   "p200": 0.2253,
+   "official": "Likely",
+   "above_200": 1,
+   "above_40": 1
   },
   {
    "date": "2026-11-17",
@@ -184,11 +244,41 @@
   },
   {
    "date": "2026-11-17",
+   "site_key": "north-curl-curl-beach",
+   "site_name": "North Curl Curl Beach",
+   "model": "Unlikely",
+   "p200": 0.0333,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "north-narrabeen-beach",
+   "site_name": "North Narrabeen Beach",
+   "model": "Unlikely",
+   "p200": 0.0279,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-17",
    "site_key": "north-scotland-island",
    "site_name": "North Scotland Island",
    "model": "Unlikely",
    "p200": 0.0141,
    "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "north-steyne-beach",
+   "site_name": "North Steyne Beach",
+   "model": "Unlikely",
+   "p200": 0.0387,
+   "official": "Likely",
    "above_200": 0,
    "above_40": 0
   },
@@ -214,11 +304,51 @@
   },
   {
    "date": "2026-11-17",
+   "site_key": "queenscliff-beach",
+   "site_name": "Queenscliff Beach",
+   "model": "Possible",
+   "p200": 0.1327,
+   "official": "Likely",
+   "above_200": 1,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "shelly-beach-manly",
+   "site_name": "Shelly Beach (Manly)",
+   "model": "Likely",
+   "p200": 0.1512,
+   "official": "Likely",
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "south-curl-curl-beach",
+   "site_name": "South Curl Curl Beach",
+   "model": "Unlikely",
+   "p200": 0.0182,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
    "site_key": "south-scotland-island",
    "site_name": "South Scotland Island",
    "model": "Unlikely",
    "p200": 0.0119,
    "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "south-steyne-beach",
+   "site_name": "South Steyne Beach",
+   "model": "Possible",
+   "p200": 0.0726,
+   "official": "Likely",
    "above_200": 0,
    "above_40": 0
   },
@@ -244,10 +374,140 @@
   },
   {
    "date": "2026-11-17",
+   "site_key": "turimetta-beach",
+   "site_name": "Turimetta Beach",
+   "model": "Unlikely",
+   "p200": 0.0049,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
+   "site_key": "warriewood-beach",
+   "site_name": "Warriewood Beach",
+   "model": "Unlikely",
+   "p200": 0.012,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-17",
    "site_key": "whale-beach",
    "site_name": "Whale Beach",
    "model": "Unlikely",
    "p200": 0.0057,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "bondi-beach",
+   "site_name": "Bondi Beach",
+   "model": "Unlikely",
+   "p200": 0.018,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "bronte-beach",
+   "site_name": "Bronte Beach",
+   "model": "Unlikely",
+   "p200": 0.0116,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "clovelly-beach",
+   "site_name": "Clovelly Beach",
+   "model": "Unlikely",
+   "p200": 0.0102,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "coogee-beach",
+   "site_name": "Coogee Beach",
+   "model": "Unlikely",
+   "p200": 0.0283,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "gordons-bay-east",
+   "site_name": "Gordons Bay (East)",
+   "model": "Unlikely",
+   "p200": 0.0177,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "little-bay-beach",
+   "site_name": "Little Bay Beach",
+   "model": "Unlikely",
+   "p200": 0.0253,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "malabar-beach",
+   "site_name": "Malabar Beach",
+   "model": "Possible",
+   "p200": 0.0762,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "maroubra-beach",
+   "site_name": "Maroubra Beach",
+   "model": "Unlikely",
+   "p200": 0.0226,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "south-maroubra-beach",
+   "site_name": "South Maroubra Beach",
+   "model": "Unlikely",
+   "p200": 0.0096,
+   "official": null,
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "south-maroubra-rockpool",
+   "site_name": "South Maroubra Rockpool",
+   "model": "Unlikely",
+   "p200": 0.0188,
+   "official": null,
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "tamarama-beach",
+   "site_name": "Tamarama Beach",
+   "model": "Unlikely",
+   "p200": 0.0137,
    "official": "Unlikely",
    "above_200": 0,
    "above_40": 0
