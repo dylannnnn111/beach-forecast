@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-11-23T03:03:00Z",
+ "generated_at": "2026-11-23T15:15:47Z",
  "first_day": "2026-11-17",
- "last_day": "2026-11-19",
+ "last_day": "2026-11-20",
  "all_calls": {
   "model": {
-   "n": 47,
+   "n": 54,
    "above_200": 3,
    "above_40": 9,
    "by_level": {
     "Unlikely": {
-     "n": 36,
+     "n": 42,
      "above_200": 0,
      "above_40": 2
     },
     "Possible": {
-     "n": 5,
+     "n": 6,
      "above_200": 1,
      "above_40": 1
     },
@@ -24,24 +24,24 @@
      "above_40": 6
     }
    },
-   "flagged": 11,
+   "flagged": 12,
    "caught_above_200": 3,
    "caught_above_40": 7
   }
  },
  "head_to_head": {
   "model": {
-   "n": 40,
+   "n": 47,
    "above_200": 2,
    "above_40": 5,
    "by_level": {
     "Unlikely": {
-     "n": 34,
+     "n": 40,
      "above_200": 0,
      "above_40": 2
     },
     "Possible": {
-     "n": 4,
+     "n": 5,
      "above_200": 1,
      "above_40": 1
     },
@@ -51,22 +51,22 @@
      "above_40": 2
     }
    },
-   "flagged": 6,
+   "flagged": 7,
    "caught_above_200": 2,
    "caught_above_40": 3
   },
   "official": {
-   "n": 40,
+   "n": 47,
    "above_200": 2,
    "above_40": 5,
    "by_level": {
     "Unlikely": {
-     "n": 22,
+     "n": 28,
      "above_200": 0,
      "above_40": 2
     },
     "Possible": {
-     "n": 12,
+     "n": 13,
      "above_200": 0,
      "above_40": 0
     },
@@ -76,7 +76,7 @@
      "above_40": 3
     }
    },
-   "flagged": 18,
+   "flagged": 19,
    "caught_above_200": 2,
    "caught_above_40": 3
   }
@@ -551,6 +551,76 @@
    "official": null,
    "above_200": 0,
    "above_40": 1
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "como-baths",
+   "site_name": "Como Baths",
+   "model": "Unlikely",
+   "p200": 0.0254,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "gunnamatta-bay-baths",
+   "site_name": "Gunnamatta Bay Baths",
+   "model": "Unlikely",
+   "p200": 0.0116,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "gymea-bay-baths",
+   "site_name": "Gymea Bay Baths",
+   "model": "Possible",
+   "p200": 0.0409,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "horderns-beach",
+   "site_name": "Horderns Beach",
+   "model": "Unlikely",
+   "p200": 0.0074,
+   "official": "Possible",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "jibbon-beach",
+   "site_name": "Jibbon Beach",
+   "model": "Unlikely",
+   "p200": 0.0041,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "lilli-pilli-baths",
+   "site_name": "Lilli Pilli Baths",
+   "model": "Unlikely",
+   "p200": 0.0081,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "silver-beach",
+   "site_name": "Silver Beach",
+   "model": "Unlikely",
+   "p200": 0.0112,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
   }
  ]
 }
