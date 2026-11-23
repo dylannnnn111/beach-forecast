@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-23T00:13:26Z",
+ "generated_at": "2026-11-23T03:03:00Z",
  "first_day": "2026-11-17",
  "last_day": "2026-11-19",
  "all_calls": {
   "model": {
-   "n": 43,
+   "n": 47,
    "above_200": 3,
-   "above_40": 6,
+   "above_40": 9,
    "by_level": {
     "Unlikely": {
      "n": 36,
@@ -14,19 +14,19 @@
      "above_40": 2
     },
     "Possible": {
-     "n": 4,
+     "n": 5,
      "above_200": 1,
      "above_40": 1
     },
     "Likely": {
-     "n": 3,
+     "n": 6,
      "above_200": 2,
-     "above_40": 3
+     "above_40": 6
     }
    },
-   "flagged": 7,
+   "flagged": 11,
    "caught_above_200": 3,
-   "caught_above_40": 4
+   "caught_above_40": 7
   }
  },
  "head_to_head": {
@@ -484,6 +484,16 @@
   },
   {
    "date": "2026-11-19",
+   "site_key": "megalong-creek",
+   "site_name": "Megalong Creek",
+   "model": "Likely",
+   "p200": 0.2249,
+   "official": null,
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-19",
    "site_key": "south-maroubra-beach",
    "site_name": "South Maroubra Beach",
    "model": "Unlikely",
@@ -511,6 +521,36 @@
    "official": "Unlikely",
    "above_200": 0,
    "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "wentworth-falls-lake-beach",
+   "site_name": "Wentworth Falls Lake - Beach",
+   "model": "Possible",
+   "p200": 0.0942,
+   "official": null,
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "wentworth-falls-lake-jetty",
+   "site_name": "Wentworth Falls Lake - Jetty",
+   "model": "Likely",
+   "p200": 0.2626,
+   "official": null,
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-19",
+   "site_key": "yosemite-creek-minnehaha-falls",
+   "site_name": "Yosemite Creek - Minnehaha Falls",
+   "model": "Likely",
+   "p200": 0.2337,
+   "official": null,
+   "above_200": 0,
+   "above_40": 1
   }
  ]
 }
