@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-11-24T15:12:59Z",
+ "generated_at": "2026-11-25T01:02:29Z",
  "first_day": "2026-11-17",
  "last_day": "2026-11-20",
  "all_calls": {
   "model": {
-   "n": 54,
+   "n": 67,
    "above_200": 3,
-   "above_40": 9,
+   "above_40": 10,
    "by_level": {
     "Unlikely": {
-     "n": 42,
+     "n": 53,
      "above_200": 0,
-     "above_40": 2
+     "above_40": 3
     },
     "Possible": {
-     "n": 6,
+     "n": 8,
      "above_200": 1,
      "above_40": 1
     },
@@ -24,24 +24,24 @@
      "above_40": 6
     }
    },
-   "flagged": 12,
+   "flagged": 14,
    "caught_above_200": 3,
    "caught_above_40": 7
   }
  },
  "head_to_head": {
   "model": {
-   "n": 47,
+   "n": 60,
    "above_200": 2,
-   "above_40": 5,
+   "above_40": 6,
    "by_level": {
     "Unlikely": {
-     "n": 40,
+     "n": 51,
      "above_200": 0,
-     "above_40": 2
+     "above_40": 3
     },
     "Possible": {
-     "n": 5,
+     "n": 7,
      "above_200": 1,
      "above_40": 1
     },
@@ -51,32 +51,32 @@
      "above_40": 2
     }
    },
-   "flagged": 7,
+   "flagged": 9,
    "caught_above_200": 2,
    "caught_above_40": 3
   },
   "official": {
-   "n": 47,
+   "n": 60,
    "above_200": 2,
-   "above_40": 5,
+   "above_40": 6,
    "by_level": {
     "Unlikely": {
-     "n": 28,
+     "n": 39,
      "above_200": 0,
-     "above_40": 2
+     "above_40": 3
     },
     "Possible": {
-     "n": 13,
+     "n": 14,
      "above_200": 0,
      "above_40": 0
     },
     "Likely": {
-     "n": 6,
+     "n": 7,
      "above_200": 2,
      "above_40": 3
     }
    },
-   "flagged": 19,
+   "flagged": 21,
    "caught_above_200": 2,
    "caught_above_40": 3
   }
@@ -554,10 +554,70 @@
   },
   {
    "date": "2026-11-20",
+   "site_key": "brighton-le-sands-baths",
+   "site_name": "Brighton Le Sands Baths",
+   "model": "Unlikely",
+   "p200": 0.0191,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "carss-point-baths",
+   "site_name": "Carss Point Baths",
+   "model": "Unlikely",
+   "p200": 0.0344,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
    "site_key": "como-baths",
    "site_name": "Como Baths",
    "model": "Unlikely",
    "p200": 0.0254,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "congwong-bay",
+   "site_name": "Congwong Bay",
+   "model": "Unlikely",
+   "p200": 0.0094,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "dolls-point-baths",
+   "site_name": "Dolls Point Baths",
+   "model": "Unlikely",
+   "p200": 0.0342,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "foreshore-beach",
+   "site_name": "Foreshore Beach",
+   "model": "Possible",
+   "p200": 0.0846,
+   "official": "Likely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "frenchmans-bay",
+   "site_name": "Frenchmans Bay",
+   "model": "Possible",
+   "p200": 0.0682,
    "official": "Unlikely",
    "above_200": 0,
    "above_40": 0
@@ -594,10 +654,30 @@
   },
   {
    "date": "2026-11-20",
+   "site_key": "jew-fish-bay-baths",
+   "site_name": "Jew Fish Bay Baths",
+   "model": "Unlikely",
+   "p200": 0.0189,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
    "site_key": "jibbon-beach",
    "site_name": "Jibbon Beach",
    "model": "Unlikely",
    "p200": 0.0041,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "kyeemagh-baths",
+   "site_name": "Kyeemagh Baths",
+   "model": "Unlikely",
+   "p200": 0.0245,
    "official": "Unlikely",
    "above_200": 0,
    "above_40": 0
@@ -614,11 +694,61 @@
   },
   {
    "date": "2026-11-20",
+   "site_key": "monterey-baths",
+   "site_name": "Monterey Baths",
+   "model": "Unlikely",
+   "p200": 0.0155,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "oatley-bay-baths",
+   "site_name": "Oatley Bay Baths",
+   "model": "Unlikely",
+   "p200": 0.0168,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "ramsgate-baths",
+   "site_name": "Ramsgate Baths",
+   "model": "Unlikely",
+   "p200": 0.0112,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "sandringham-baths",
+   "site_name": "Sandringham Baths",
+   "model": "Unlikely",
+   "p200": 0.0045,
+   "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
    "site_key": "silver-beach",
    "site_name": "Silver Beach",
    "model": "Unlikely",
    "p200": 0.0112,
    "official": "Unlikely",
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-20",
+   "site_key": "yarra-bay",
+   "site_name": "Yarra Bay",
+   "model": "Unlikely",
+   "p200": 0.0299,
+   "official": "Possible",
    "above_200": 0,
    "above_40": 0
   }
