@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-26T14:20:15Z",
+ "generated_at": "2026-11-26T23:15:44Z",
  "first_day": "2026-11-17",
- "last_day": "2026-11-24",
+ "last_day": "2026-11-25",
  "all_calls": {
   "model": {
-   "n": 126,
-   "above_200": 4,
-   "above_40": 17,
+   "n": 130,
+   "above_200": 5,
+   "above_40": 20,
    "by_level": {
     "Unlikely": {
      "n": 107,
@@ -14,19 +14,19 @@
      "above_40": 7
     },
     "Possible": {
-     "n": 13,
+     "n": 14,
      "above_200": 2,
      "above_40": 4
     },
     "Likely": {
-     "n": 6,
-     "above_200": 2,
-     "above_40": 6
+     "n": 9,
+     "above_200": 3,
+     "above_40": 9
     }
    },
-   "flagged": 19,
-   "caught_above_200": 4,
-   "caught_above_40": 10
+   "flagged": 23,
+   "caught_above_200": 5,
+   "caught_above_40": 13
   }
  },
  "head_to_head": {
@@ -1341,6 +1341,46 @@
    "official": "Unlikely",
    "above_200": 0,
    "above_40": 0
+  },
+  {
+   "date": "2026-11-25",
+   "site_key": "colo-river-park",
+   "site_name": "Colo River Park",
+   "model": "Likely",
+   "p200": 0.1943,
+   "official": null,
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-25",
+   "site_key": "macquarie-park-windsor",
+   "site_name": "Macquarie Park - Windsor",
+   "model": "Likely",
+   "p200": 0.2048,
+   "official": null,
+   "above_200": 0,
+   "above_40": 1
+  },
+  {
+   "date": "2026-11-25",
+   "site_key": "penrith-beach",
+   "site_name": "Penrith Beach",
+   "model": "Possible",
+   "p200": 0.0593,
+   "official": null,
+   "above_200": 0,
+   "above_40": 0
+  },
+  {
+   "date": "2026-11-25",
+   "site_key": "yarramundi-reserve",
+   "site_name": "Yarramundi Reserve",
+   "model": "Likely",
+   "p200": 0.519,
+   "official": null,
+   "above_200": 1,
+   "above_40": 1
   }
  ]
 }
